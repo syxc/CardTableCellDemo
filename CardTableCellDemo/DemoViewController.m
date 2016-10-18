@@ -69,8 +69,8 @@
     if (!tempCell) {
       tempCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellSeparator];
       tempCell.selectionStyle = UITableViewCellSeparatorStyleNone;
-      [tempCell.contentView setAlpha:0];
-      [tempCell.contentView setUserInteractionEnabled:NO]; // prevent selection and other stuff
+      [tempCell setAlpha:0];
+      [tempCell setUserInteractionEnabled:NO]; // prevent selection and other stuff
       tempCell.backgroundColor = [UIColor clearColor];
     }
     return tempCell;
@@ -93,6 +93,11 @@
     return 20;
   }
   return 160;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+  NSLog(@"Cell title: %@ Cell row: %ld", cell.textLabel.text, indexPath.row);
 }
 
 @end
