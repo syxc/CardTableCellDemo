@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DemoViewController.h
 //  CardTableCellDemo
 //
 //  Created by syxc on 2016/10/19.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface DemoViewController : UIViewController
 
 
 @end
