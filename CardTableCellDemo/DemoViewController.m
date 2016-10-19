@@ -7,6 +7,8 @@
 //
 
 #import "DemoViewController.h"
+#import "CardCell.h"
+#import "CellModel.h"
 
 @interface DemoViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -27,6 +29,7 @@
   _tableView.delegate = self;
   _tableView.backgroundColor = [UIColor clearColor];
   _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  _tableView.contentInset = UIEdgeInsetsMake(20, 0, 20, 0); // top, bootom margin: 20
   
   [self.view addSubview:_tableView];
   
@@ -69,23 +72,25 @@
     if (!tempCell) {
       tempCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellSeparator];
       tempCell.selectionStyle = UITableViewCellSeparatorStyleNone;
+      tempCell.backgroundColor = [UIColor clearColor];
       [tempCell setAlpha:0];
       [tempCell setUserInteractionEnabled:NO]; // prevent selection and other stuff
-      tempCell.backgroundColor = [UIColor clearColor];
     }
     return tempCell;
   }
   
   static NSString *const CellIdentifier = @"CardCell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    cell.backgroundColor = [UIColor whiteColor];
+  CardCell *cardCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (!cardCell) {
+    cardCell = [[CardCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    cardCell.selectionStyle = UITableViewCellSeparatorStyleNone;
+    cardCell.backgroundColor = [UIColor clearColor];
   }
   
-  cell.textLabel.text = _titleArray[indexPath.row/2];
+  CellModel *model = [CellModel modelWithName:_titleArray[indexPath.row/2]];
+  [cardCell.cardView setCellModel:model];
   
-  return cell;
+  return cardCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,7 +102,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-  NSLog(@"Cell title: %@ Cell row: %ld", cell.textLabel.text, indexPath.row);
+  if ([cell isKindOfClass:[CardCell class]]) {
+    CardCell *cardCell = (CardCell *)cell;
+    NSLog(@"Cell title: %@ Cell row: %ld", cardCell.cardView.cellModel.name, indexPath.row);
+  }
 }
 
 @end

@@ -14,6 +14,9 @@
 		4CD6E7741DB68E7600132201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD6E7721DB68E7600132201 /* LaunchScreen.storyboard */; };
 		4CD6E77F1DB68E7600132201 /* CardTableCellDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6E77E1DB68E7600132201 /* CardTableCellDemoTests.m */; };
 		4CD6E78A1DB68E7600132201 /* CardTableCellDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6E7891DB68E7600132201 /* CardTableCellDemoUITests.m */; };
+		4CD6E7991DB7154A00132201 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6E7981DB7154A00132201 /* CardView.m */; };
+		4CD6E79C1DB7191300132201 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6E79B1DB7191300132201 /* CardCell.m */; };
+		4CD6E79F1DB7278000132201 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6E79E1DB7278000132201 /* CellModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,12 @@
 		4CD6E7851DB68E7600132201 /* CardTableCellDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardTableCellDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD6E7891DB68E7600132201 /* CardTableCellDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardTableCellDemoUITests.m; sourceTree = "<group>"; };
 		4CD6E78B1DB68E7600132201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CD6E7971DB7154A00132201 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		4CD6E7981DB7154A00132201 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		4CD6E79A1DB7191300132201 /* CardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
+		4CD6E79B1DB7191300132201 /* CardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCell.m; sourceTree = "<group>"; };
+		4CD6E79D1DB7278000132201 /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		4CD6E79E1DB7278000132201 /* CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +108,11 @@
 		4CD6E7631DB68E7600132201 /* CardTableCellDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4CD6E7A21DB72FB000132201 /* Controller */,
+				4CD6E7A11DB72FAB00132201 /* View */,
+				4CD6E7A01DB72FA300132201 /* Model */,
 				4CD6E7671DB68E7600132201 /* AppDelegate.h */,
 				4CD6E7681DB68E7600132201 /* AppDelegate.m */,
-				4CD6E76A1DB68E7600132201 /* DemoViewController.h */,
-				4CD6E76B1DB68E7600132201 /* DemoViewController.m */,
 				4CD6E7701DB68E7600132201 /* Assets.xcassets */,
 				4CD6E7721DB68E7600132201 /* LaunchScreen.storyboard */,
 				4CD6E7751DB68E7600132201 /* Info.plist */,
@@ -135,6 +145,43 @@
 				4CD6E78B1DB68E7600132201 /* Info.plist */,
 			);
 			path = CardTableCellDemoUITests;
+			sourceTree = "<group>";
+		};
+		4CD6E7A01DB72FA300132201 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CD6E79D1DB7278000132201 /* CellModel.h */,
+				4CD6E79E1DB7278000132201 /* CellModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4CD6E7A11DB72FAB00132201 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CD6E7A31DB72FC900132201 /* Cell */,
+				4CD6E7971DB7154A00132201 /* CardView.h */,
+				4CD6E7981DB7154A00132201 /* CardView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4CD6E7A21DB72FB000132201 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4CD6E76A1DB68E7600132201 /* DemoViewController.h */,
+				4CD6E76B1DB68E7600132201 /* DemoViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4CD6E7A31DB72FC900132201 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4CD6E79A1DB7191300132201 /* CardCell.h */,
+				4CD6E79B1DB7191300132201 /* CardCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +318,10 @@
 			files = (
 				4CD6E76C1DB68E7600132201 /* DemoViewController.m in Sources */,
 				4CD6E7691DB68E7600132201 /* AppDelegate.m in Sources */,
+				4CD6E79C1DB7191300132201 /* CardCell.m in Sources */,
+				4CD6E7991DB7154A00132201 /* CardView.m in Sources */,
 				4CD6E7661DB68E7600132201 /* main.m in Sources */,
+				4CD6E79F1DB7278000132201 /* CellModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +543,7 @@
 				4CD6E7901DB68E7600132201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CD6E7911DB68E7600132201 /* Build configuration list for PBXNativeTarget "CardTableCellDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +552,7 @@
 				4CD6E7931DB68E7600132201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CD6E7941DB68E7600132201 /* Build configuration list for PBXNativeTarget "CardTableCellDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +561,7 @@
 				4CD6E7961DB68E7600132201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
