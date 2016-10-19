@@ -58,6 +58,32 @@
   self.nameLabel.frame = self.frame;
 }
 
+#pragma mark - Options: highlight effect
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+  for (UIView *subview in self.subviews) {
+    subview.alpha = 0.5;
+  }
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+  for (UIView *subview in self.subviews) {
+    subview.alpha = 1.0;
+  }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+  for (UIView *subview in self.subviews) {
+    subview.alpha = 0.5;
+  }
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+  for (UIView *subview in self.subviews) {
+    subview.alpha = 1.0;
+  }
+}
+
 - (void)setCellModel:(CellModel *)cellModel {
   _cellModel = cellModel;
   self.nameLabel.text = cellModel.name;
