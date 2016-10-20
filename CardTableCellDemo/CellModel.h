@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CellModel : NSObject
 
-@property (nonatomic, copy) NSString *name;
+@property (copy, nonatomic) NSString *name;
 
 + (instancetype)modelWithName:(NSString *)name;
 

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CardCell : UITableViewCell
 
-@property (nonatomic, weak) CardView *cardView;
+@property (weak, nonatomic) CardView *cardView;
 
 @end
 

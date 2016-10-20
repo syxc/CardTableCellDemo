@@ -22,8 +22,16 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
   [super setSelected:selected animated:animated];
-  
-  // Configure the view for the selected state
+  if (_cardView && selected) {
+    [_cardView setAlpha:1.0];
+  }
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+  [super setHighlighted:highlighted animated:animated];
+  if (_cardView && highlighted) {
+    [_cardView setAlpha:0.5];
+  }
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

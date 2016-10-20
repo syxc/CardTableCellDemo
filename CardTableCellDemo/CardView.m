@@ -11,13 +11,12 @@
 
 @interface CardView ()
 
-@property (nonatomic, assign) CGFloat cornerRadius;
-@property (nonatomic, assign) int shadowOffsetWidth;
-@property (nonatomic, assign) int shadowOffsetHeight;
-@property (nonatomic, strong) UIColor *shadowColor;
-@property (nonatomic, assign) CGFloat shadowOpacity;
-
-@property (nonatomic, weak) UILabel *nameLabel;
+@property (assign, nonatomic) CGFloat cornerRadius;
+@property (assign, nonatomic) NSInteger shadowOffsetWidth;
+@property (assign, nonatomic) NSInteger shadowOffsetHeight;
+@property (assign, nonatomic) CGFloat shadowOpacity;
+@property (strong, nonatomic) UIColor *shadowColor;
+@property (weak, nonatomic) UILabel *nameLabel;
 
 @end
 
@@ -58,34 +57,9 @@
   self.nameLabel.frame = self.frame;
 }
 
-#pragma mark - Options: highlight effect
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-  for (UIView *subview in self.subviews) {
-    subview.alpha = 0.5;
-  }
-}
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-  for (UIView *subview in self.subviews) {
-    subview.alpha = 1.0;
-  }
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-  for (UIView *subview in self.subviews) {
-    subview.alpha = 0.5;
-  }
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-  for (UIView *subview in self.subviews) {
-    subview.alpha = 1.0;
-  }
-}
-
 - (void)setCellModel:(CellModel *)cellModel {
   _cellModel = cellModel;
   self.nameLabel.text = cellModel.name;
 }
+
 @end

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CardView : UIView
 
-@property (nonatomic, strong) CellModel *cellModel;
+@property (strong, nonatomic) CellModel *cellModel;
 
 @end
 
