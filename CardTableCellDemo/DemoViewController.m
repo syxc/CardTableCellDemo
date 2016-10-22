@@ -61,7 +61,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [_titleArray count] * 2 - 1;
+  if ([_titleArray count] > 0) {
+    return [_titleArray count] * 2 - 1;
+  }
+  return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,8 +90,10 @@
     cardCell.backgroundColor = [UIColor clearColor];
   }
   
-  CellModel *model = [CellModel modelWithName:_titleArray[indexPath.row/2]];
-  [cardCell.cardView setCellModel:model];
+  if (indexPath.row / 2 < [_titleArray count]) {
+    CellModel *model = [CellModel modelWithName:_titleArray[indexPath.row / 2]];
+    [cardCell.cardView setCellModel:model];
+  }
   
   return cardCell;
 }
